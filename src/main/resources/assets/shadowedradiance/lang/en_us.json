@@ -1,0 +1,13 @@
+{
+  "itemGroup.shadowedradiance": "Example Mod Tab",
+  "block.shadowedradiance.example_block": "Example Block",
+  "item.shadowedradiance.example_item": "Example Item",
+
+  "shadowedradiance.configuration.title": "Shadowed Radiance Configs",
+  "shadowedradiance.configuration.section.shadowedradiance.common.toml": "Shadowed Radiance Configs",
+  "shadowedradiance.configuration.section.shadowedradiance.common.toml.title": "Shadowed Radiance Configs",
+  "shadowedradiance.configuration.items": "Item List",
+  "shadowedradiance.configuration.logDirtBlock": "Log Dirt Block",
+  "shadowedradiance.configuration.magicNumberIntroduction": "Magic Number Text",
+  "shadowedradiance.configuration.magicNumber": "Magic Number"
+}
