@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "shadowedradiance:block/lux_crystal_cluster",
+    "particle": "shadowedradiance:block/lux_crystal_cluster"
+  },
+  "render_type": "cutout"
+}

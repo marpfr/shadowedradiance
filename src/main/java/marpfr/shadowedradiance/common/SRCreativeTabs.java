@@ -16,14 +16,16 @@ public class SRCreativeTabs {
 
     private static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, ShadowedRadiance.MODID);
 
-
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> EXAMPLE_TAB = CREATIVE_MODE_TABS.register("example_tab", () -> CreativeModeTab.builder()
             .title(Component.translatable("itemGroup.shadowedradiance"))
             .withTabsBefore(CreativeModeTabs.COMBAT)
-            .icon(() -> SRItems.EXAMPLE_ITEM.get().getDefaultInstance())
+            .icon(() -> SRItems.LUX_CRYSTAL_CLUSTER_ITEM.get().getDefaultInstance())
             .displayItems((parameters, output) -> {
 
-                output.accept(SRItems.EXAMPLE_ITEM.get());
+                output.accept(SRItems.LUX_CRYSTAL_CLUSTER_ITEM.get());
+                output.accept(SRItems.LUX_IMBUED_STONE_BLOCK_ITEM.get());
+                output.accept(SRItems.LUX_CRYSTAL_FRAGMENT_ITEM.get());
+                output.accept(SRItems.LUX_CRYSTAL_SHARD_ITEM.get());
 
             }).build());
 
@@ -34,8 +36,8 @@ public class SRCreativeTabs {
 
     // Add the example block item to the building blocks tab
     public static void addCreative(BuildCreativeModeTabContentsEvent event) {
-        if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
-            event.accept(SRItems.EXAMPLE_BLOCK_ITEM);
-        }
+//        if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
+//
+//        }
     }
 }

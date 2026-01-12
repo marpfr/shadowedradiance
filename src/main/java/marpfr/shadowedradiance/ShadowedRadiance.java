@@ -3,6 +3,9 @@ package marpfr.shadowedradiance;
 import marpfr.shadowedradiance.common.SRCreativeTabs;
 import marpfr.shadowedradiance.common.block.SRBlocks;
 import marpfr.shadowedradiance.common.item.SRItems;
+import marpfr.shadowedradiance.common.world.feature.SRFeatures;
+import net.neoforged.neoforge.data.event.GatherDataEvent;
+import net.neoforged.neoforge.registries.DeferredRegister;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -19,6 +22,8 @@ import net.neoforged.neoforge.event.server.ServerStartingEvent;
 @Mod(ShadowedRadiance.MODID)
 public class ShadowedRadiance {
 
+
+
     // Define mod id in a common place for everything to reference
     public static final String MODID = "shadowedradiance";
 
@@ -33,7 +38,7 @@ public class ShadowedRadiance {
         SRBlocks.register(modEventBus);
         SRItems.register(modEventBus);
         SRCreativeTabs.register(modEventBus);
-
+        SRFeatures.register(modEventBus);
 
         // Register ourselves for server and other game events we are interested in.
         // Note that this is necessary if and only if we want *this* class (ShadowedRadiance) to respond directly to events.

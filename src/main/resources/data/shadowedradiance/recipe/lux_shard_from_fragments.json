@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " ff",
+    "fff",
+    "ff "
+  ],
+  "key": {
+    "f": "shadowedradiance:lux_crystal_fragment"
+  },
+  "result": {
+    "id": "shadowedradiance:lux_crystal_shard",
+    "count": 1
+  }
+}

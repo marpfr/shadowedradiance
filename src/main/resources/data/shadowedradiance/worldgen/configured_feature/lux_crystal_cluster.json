@@ -1,0 +1,8 @@
+{
+  "type": "shadowedradiance:lux_crystal_cluster",
+  "config": {
+    "state": {
+      "Name": "shadowedradiance:lux_imbued_stone"
+    }
+  }
+}
