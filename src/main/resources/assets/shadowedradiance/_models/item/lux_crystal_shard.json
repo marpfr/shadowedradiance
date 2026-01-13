@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "shadowedradiance:item/lux_crystal_shard"
-  }
-}

@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/cube_all",
-  "textures": {
-    "all": "shadowedradiance:block/lux_imbued_stone"
-  }
-}

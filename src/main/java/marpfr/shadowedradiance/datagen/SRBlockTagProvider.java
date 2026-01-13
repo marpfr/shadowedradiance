@@ -24,5 +24,8 @@ public class SRBlockTagProvider extends BlockTagsProvider {
                 .add(SRBlocks.LUX_IMBUED_STONE_BLOCK.get())
                 .add(SRBlocks.LUX_CRYSTAL_CLUSTER.get());
 
+        this.tag(BlockTags.SNOW_LAYER_CANNOT_SURVIVE_ON)
+                .add(SRBlocks.LUX_CRYSTAL_CLUSTER.get());
+
     }
 }
