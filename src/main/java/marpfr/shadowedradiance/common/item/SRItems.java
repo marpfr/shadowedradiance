@@ -11,9 +11,11 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 
 public class SRItems {
 
-    private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ShadowedRadiance.MODID);
+    public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ShadowedRadiance.MODID);
 
     public static final DeferredItem<BlockItem> LUX_IMBUED_STONE_BLOCK_ITEM = ITEMS.registerSimpleBlockItem("lux_imbued_stone", SRBlocks.LUX_IMBUED_STONE_BLOCK);
+
+    public static final DeferredItem<BlockItem> LUX_IMBUED_STONE_BRICK_BLOCK_ITEM = ITEMS.registerSimpleBlockItem("lux_imbued_stone_brick", SRBlocks.LUX_IMBUED_STONE_BRICK_BLOCK);
 
     public static final DeferredItem<BlockItem> LUX_CRYSTAL_CLUSTER_ITEM = ITEMS.registerSimpleBlockItem("lux_crystal_cluster", SRBlocks.LUX_CRYSTAL_CLUSTER);
 

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "shadowedradiance:block/lux_crystal_cluster"
+  }
+}

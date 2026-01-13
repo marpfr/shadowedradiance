@@ -24,6 +24,7 @@ public class SRCreativeTabs {
 
                 output.accept(SRItems.LUX_CRYSTAL_CLUSTER_ITEM.get());
                 output.accept(SRItems.LUX_IMBUED_STONE_BLOCK_ITEM.get());
+                output.accept(SRItems.LUX_IMBUED_STONE_BRICK_BLOCK_ITEM.get());
                 output.accept(SRItems.LUX_CRYSTAL_FRAGMENT_ITEM.get());
                 output.accept(SRItems.LUX_CRYSTAL_SHARD_ITEM.get());
 

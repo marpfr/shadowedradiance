@@ -1,6 +1,10 @@
 package marpfr.shadowedradiance;
 
+import marpfr.shadowedradiance.common.block.SRBlocks;
+import marpfr.shadowedradiance.datagen.SRModelProvider;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.chunk.ChunkSectionLayer;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
@@ -9,6 +13,7 @@ import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.gui.ConfigurationScreen;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
+import net.neoforged.neoforge.data.event.GatherDataEvent;
 
 // This class will not load on dedicated servers. Accessing client side code from here is safe.
 @Mod(value = ShadowedRadiance.MODID, dist = Dist.CLIENT)
@@ -27,5 +32,7 @@ public class ShadowedRadianceClient {
         // Some client setup code
         ShadowedRadiance.LOGGER.info("HELLO FROM CLIENT SETUP");
         ShadowedRadiance.LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
+
+        ItemBlockRenderTypes.setRenderLayer(SRBlocks.LUX_CRYSTAL_CLUSTER.get(), ChunkSectionLayer.CUTOUT);
     }
 }

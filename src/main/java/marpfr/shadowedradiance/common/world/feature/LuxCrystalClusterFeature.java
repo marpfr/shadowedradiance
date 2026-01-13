@@ -50,7 +50,6 @@ public class LuxCrystalClusterFeature extends Feature<BlockStateConfiguration> {
     }
 
     private void placeCrystal(BlockPos blockpos, WorldGenLevel worldgenlevel, RandomSource randomsource) {
-        System.out.println("placing crystal at " + blockpos.toString());
         worldgenlevel.setBlock(blockpos, SRBlocks.LUX_CRYSTAL_CLUSTER.get().defaultBlockState(), 3);
         worldgenlevel.setBlock(blockpos.below(), SRBlocks.LUX_IMBUED_STONE_BLOCK.get().defaultBlockState(), 3);
         for (BlockPos bp1 : BlockPos.betweenClosed(blockpos.offset(-1, -2, -1), blockpos.offset(1, 1, 1))) {

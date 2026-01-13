@@ -47,7 +47,7 @@ public class LuxCrystalClusterBlock extends Block implements SimpleWaterloggedBl
                         .noOcclusion()
                         .sound(SoundType.AMETHYST_CLUSTER)
                         .strength(1.5F)
-                        // .lightLevel(p_152632_ -> 5)
+                        .lightLevel(state -> 5)
                         .pushReaction(PushReaction.DESTROY)
                         .isRedstoneConductor((bs, br, bp) -> false));
         this.registerDefaultState(this.defaultBlockState().setValue(WATERLOGGED, false).setValue(FACING, Direction.UP));
@@ -85,8 +85,6 @@ public class LuxCrystalClusterBlock extends Block implements SimpleWaterloggedBl
         }
 
         r = Mth.clamp(r, 0, 15);
-
-        System.out.println("i: " + i + " a: " + a + " f: " + f + " r: " + r);
 
         if (r > 0 && random.nextInt(17 - r) == 0) {
             level.addParticle(
