@@ -12,14 +12,9 @@ import net.minecraft.client.data.models.blockstates.MultiVariantGenerator;
 import net.minecraft.client.data.models.model.ModelTemplates;
 import net.minecraft.client.data.models.model.TextureMapping;
 import net.minecraft.client.renderer.block.model.Variant;
-import net.minecraft.core.Holder;
 import net.minecraft.data.PackOutput;
 import net.minecraft.util.random.WeightedList;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
 import org.jspecify.annotations.NonNull;
-
-import java.util.stream.Stream;
 
 public class SRModelProvider extends ModelProvider {
 
@@ -33,8 +28,15 @@ public class SRModelProvider extends ModelProvider {
         itemModels.generateFlatItem(SRItems.LUX_CRYSTAL_FRAGMENT_ITEM.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(SRItems.LUX_CRYSTAL_SHARD_ITEM.get(), ModelTemplates.FLAT_ITEM);
 
-        blockModels.createTrivialCube(SRBlocks.LUX_IMBUED_STONE_BRICK_BLOCK.get());
+        itemModels.generateFlatItem(SRItems.LUX_CRYSTAL_LENS_ITEM.get(), ModelTemplates.FLAT_ITEM);
+
         blockModels.createTrivialCube(SRBlocks.LUX_IMBUED_STONE_BLOCK.get());
+
+        blockModels
+                .family(SRBlocks.LUX_IMBUED_STONE_BRICK_BLOCK.get())
+                .stairs(SRBlocks.LUX_IMBUED_STONE_BRICK_STAIR_BLOCK.get())
+                .slab(SRBlocks.LUX_IMBUED_STONE_BRICK_SLAB_BLOCK.get())
+                .wall(SRBlocks.LUX_IMBUED_STONE_BRICK_WALL_BLOCK.get());
 
         registerLuxCrystalCluster(blockModels, SRBlocks.LUX_CRYSTAL_CLUSTER.get());
     }

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "shadowedradiance:block/lux_imbued_stone_brick",
+    "side": "shadowedradiance:block/lux_imbued_stone_brick",
+    "top": "shadowedradiance:block/lux_imbued_stone_brick"
+  }
+}

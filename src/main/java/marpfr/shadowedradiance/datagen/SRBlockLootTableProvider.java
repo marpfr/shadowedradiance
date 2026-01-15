@@ -8,18 +8,13 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.flag.FeatureFlags;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
-import net.minecraft.world.level.storage.loot.entries.LootPoolEntryContainer;
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
-import net.minecraft.world.level.storage.loot.functions.FunctionUserBuilder;
 import net.minecraft.world.level.storage.loot.functions.LootItemConditionalFunction;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.predicates.MatchTool;
@@ -29,11 +24,19 @@ import org.jspecify.annotations.NonNull;
 
 import java.util.Set;
 
-public class SRBlockLootTableProvider extends BlockLootSubProvider  {
+public class SRBlockLootTableProvider extends BlockLootSubProvider {
 
 
     protected SRBlockLootTableProvider(HolderLookup.Provider registries) {
         super(Set.of(), FeatureFlags.REGISTRY.allFlags(), registries);
+    }
+
+    public static LootItemConditionalFunction.Builder<?> countBetween(float min, float max) {
+        return SetItemCountFunction.setCount(UniformGenerator.between(min, max));
+    }
+
+    public static LootItemConditionalFunction.Builder<?> countExact(float value) {
+        return SetItemCountFunction.setCount(ConstantValue.exactly(value));
     }
 
     @Override
@@ -60,7 +63,7 @@ public class SRBlockLootTableProvider extends BlockLootSubProvider  {
                                 .apply(ApplyBonusCount.addOreBonusCount(enchantmentsLookup.getOrThrow(Enchantments.FORTUNE)))
                                 .when(MatchTool.toolMatches(ItemPredicate.Builder.item().of(itemLookup, ItemTags.CLUSTER_MAX_HARVESTABLES)))
                                 .otherwise(
-                                        (LootPoolEntryContainer.Builder<?>)this.applyExplosionDecay(
+                                        this.applyExplosionDecay(
                                                 block, LootItem.lootTableItem(SRItems.LUX_CRYSTAL_FRAGMENT_ITEM).apply(SetItemCountFunction.setCount(ConstantValue.exactly(2.0F)))
                                         )
                                 )
@@ -68,6 +71,10 @@ public class SRBlockLootTableProvider extends BlockLootSubProvider  {
         );
 
         this.dropSelf(SRBlocks.LUX_IMBUED_STONE_BRICK_BLOCK.get());
+        this.dropSelf(SRBlocks.LUX_IMBUED_STONE_BRICK_STAIR_BLOCK.get());
+        this.add(SRBlocks.LUX_IMBUED_STONE_BRICK_SLAB_BLOCK.get(),
+                block -> this.createSlabItemTable(SRBlocks.LUX_IMBUED_STONE_BRICK_SLAB_BLOCK.get()));
+        this.dropSelf(SRBlocks.LUX_IMBUED_STONE_BRICK_WALL_BLOCK.get());
     }
 
     @Override
@@ -76,13 +83,5 @@ public class SRBlockLootTableProvider extends BlockLootSubProvider  {
                 .stream()
                 .map(e -> (Block) e.value())
                 .toList();
-    }
-
-    public static LootItemConditionalFunction.Builder<?> countBetween(float min, float max) {
-        return SetItemCountFunction.setCount(UniformGenerator.between(min, max));
-    }
-
-    public static LootItemConditionalFunction.Builder<?> countExact(float value) {
-        return SetItemCountFunction.setCount(ConstantValue.exactly(value));
     }
 }

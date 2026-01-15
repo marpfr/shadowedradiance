@@ -5,6 +5,10 @@ import marpfr.shadowedradiance.ShadowedRadiance;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.SlabBlock;
+import net.minecraft.world.level.block.StairBlock;
+import net.minecraft.world.level.block.WallBlock;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
 import net.neoforged.bus.api.IEventBus;
@@ -33,6 +37,37 @@ public class SRBlocks {
                     .instrument(NoteBlockInstrument.BASEDRUM)
                     .requiresCorrectToolForDrops()
                     .strength(1.5F, 6.0F));
+
+    public static final DeferredBlock<StairBlock> LUX_IMBUED_STONE_BRICK_STAIR_BLOCK
+            = BLOCKS.registerBlock(
+                    "lux_imbued_stone_brick_stairs",
+                        properties -> new StairBlock(
+                                LUX_IMBUED_STONE_BRICK_BLOCK.get().defaultBlockState(),
+                                properties.mapColor(MapColor.STONE)
+                                        .instrument(NoteBlockInstrument.BASEDRUM)
+                                        .requiresCorrectToolForDrops()
+                                        .strength(1.5F, 6.0F))
+            );
+
+    public static final DeferredBlock<SlabBlock> LUX_IMBUED_STONE_BRICK_SLAB_BLOCK
+            = BLOCKS.registerBlock(
+            "lux_imbued_stone_brick_slab",
+            properties -> new SlabBlock(
+                    properties.mapColor(MapColor.STONE)
+                            .instrument(NoteBlockInstrument.BASEDRUM)
+                            .requiresCorrectToolForDrops()
+                            .strength(1.5F, 6.0F))
+    );
+
+    public static final DeferredBlock<WallBlock> LUX_IMBUED_STONE_BRICK_WALL_BLOCK
+            = BLOCKS.registerBlock(
+            "lux_imbued_stone_brick_wall",
+            properties -> new WallBlock(
+                    properties.mapColor(MapColor.STONE)
+                            .instrument(NoteBlockInstrument.BASEDRUM)
+                            .requiresCorrectToolForDrops()
+                            .strength(1.5F, 6.0F))
+    );
 
     public static void register(IEventBus modEventBus) {
         BLOCKS.register(modEventBus);

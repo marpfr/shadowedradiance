@@ -1,6 +1,9 @@
 {
   "values": [
     "shadowedradiance:lux_imbued_stone_brick",
+    "shadowedradiance:lux_imbued_stone_brick_stairs",
+    "shadowedradiance:lux_imbued_stone_brick_slab",
+    "shadowedradiance:lux_imbued_stone_brick_wall",
     "shadowedradiance:lux_imbued_stone",
     "shadowedradiance:lux_crystal_cluster"
   ]

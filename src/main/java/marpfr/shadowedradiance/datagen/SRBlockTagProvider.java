@@ -21,6 +21,9 @@ public class SRBlockTagProvider extends BlockTagsProvider {
 
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .add(SRBlocks.LUX_IMBUED_STONE_BRICK_BLOCK.get())
+                .add(SRBlocks.LUX_IMBUED_STONE_BRICK_STAIR_BLOCK.get())
+                .add(SRBlocks.LUX_IMBUED_STONE_BRICK_SLAB_BLOCK.get())
+                .add(SRBlocks.LUX_IMBUED_STONE_BRICK_WALL_BLOCK.get())
                 .add(SRBlocks.LUX_IMBUED_STONE_BLOCK.get())
                 .add(SRBlocks.LUX_CRYSTAL_CLUSTER.get());
 

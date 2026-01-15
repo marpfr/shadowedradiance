@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": "shadowedradiance:lux_crystal_shard",
+    "G": "minecraft:gold_ingot",
+    "K": "minecraft:copper_ingot",
+    "P": "minecraft:glass_pane"
+  },
+  "pattern": [
+    "KCK",
+    "GPG",
+    "KCK"
+  ],
+  "result": {
+    "count": 1,
+    "id": "shadowedradiance:lux_crystal_lens"
+  }
+}

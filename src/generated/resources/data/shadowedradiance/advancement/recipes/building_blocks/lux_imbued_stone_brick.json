@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_lux_stone": {
+      "conditions": {
+        "items": [
+          {
+            "items": "shadowedradiance:lux_imbued_stone"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "shadowedradiance:lux_imbued_stone_brick"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_lux_stone"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "shadowedradiance:lux_imbued_stone_brick"
+    ]
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/wall_inventory",
+  "textures": {
+    "wall": "shadowedradiance:block/lux_imbued_stone_brick"
+  }
+}

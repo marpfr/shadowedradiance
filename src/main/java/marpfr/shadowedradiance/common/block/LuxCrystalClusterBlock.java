@@ -29,29 +29,27 @@ import java.util.Map;
 
 public class LuxCrystalClusterBlock extends Block implements SimpleWaterloggedBlock {
 
-    public static final MapCodec<LuxCrystalClusterBlock> CODEC = simpleCodec(LuxCrystalClusterBlock::new);
-
-    @Override
-    public @NonNull MapCodec<? extends LuxCrystalClusterBlock> codec() {
-        return CODEC;
-    }
-
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
     public static final EnumProperty<Direction> FACING = BlockStateProperties.FACING;
-
+    public static final MapCodec<LuxCrystalClusterBlock> CODEC = simpleCodec(LuxCrystalClusterBlock::new);
     private final Map<Direction, VoxelShape> shapes;
 
     public LuxCrystalClusterBlock(Properties properties) {
         super(properties.mapColor(MapColor.COLOR_YELLOW)
-                        .forceSolidOn()
-                        .noOcclusion()
-                        .sound(SoundType.AMETHYST_CLUSTER)
-                        .strength(1.5F)
-                        .lightLevel(state -> 5)
-                        .pushReaction(PushReaction.DESTROY)
-                        .isRedstoneConductor((bs, br, bp) -> false));
+                .forceSolidOn()
+                .noOcclusion()
+                .sound(SoundType.AMETHYST_CLUSTER)
+                .strength(1.5F)
+                .lightLevel(state -> 5)
+                .pushReaction(PushReaction.DESTROY)
+                .isRedstoneConductor((bs, br, bp) -> false));
         this.registerDefaultState(this.defaultBlockState().setValue(WATERLOGGED, false).setValue(FACING, Direction.UP));
         this.shapes = Shapes.rotateAll(Block.boxZ(10.0F, 9.0F, 16.0));
+    }
+
+    @Override
+    public @NonNull MapCodec<? extends LuxCrystalClusterBlock> codec() {
+        return CODEC;
     }
 
     @Override
@@ -73,29 +71,25 @@ public class LuxCrystalClusterBlock extends Block implements SimpleWaterloggedBl
     public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
         super.animateTick(state, level, pos, random);
 
-        int i = level.getBrightness(LightLayer.SKY, pos) - level.getSkyDarken();
-        float a = level.environmentAttributes().getValue(EnvironmentAttributes.SUN_ANGLE, pos);
-        float f = a * (float) (Math.PI / 180.0);
-        int r = 0;
+        if (level.canSeeSky(pos)) {
+            int i = level.getBrightness(LightLayer.SKY, pos) - level.getSkyDarken();
+            float a = (Mth.sin(level.environmentAttributes().getValue(EnvironmentAttributes.SUN_ANGLE, pos) * (Math.PI / 180.0F) - 3 * Math.PI * 0.5F) + 0.2F) / 1.2F;
 
-        if (i > 0) {
-            float f1 = f < (float) Math.PI ? 0.0F : (float) (Math.PI * 2);
-            f += (f1 - f) * 0.2F;
-            r = Math.round(i * Mth.cos(f));
-        }
+            if (a > 0) {
+                int r = Mth.clamp(Math.round(a * i), 0, 15);
 
-        r = Mth.clamp(r, 0, 15);
-
-        if (r > 0 && random.nextInt(17 - r) == 0) {
-            level.addParticle(
-                    ParticleTypes.END_ROD,
-                    pos.getX() + 0.1F + random.nextFloat() * 0.8F,
-                    pos.getY() + random.nextFloat() * 0.8F,
-                    pos.getZ() + 0.1F + random.nextFloat() * 0.8F,
-                    0.0F,
-                    0.05F,
-                    0.0F
-            );
+                if (r > 0 && random.nextInt(17 - r) == 0) {
+                    level.addParticle(
+                            ParticleTypes.END_ROD,
+                            pos.getX() + 0.1F + random.nextFloat() * 0.8F,
+                            pos.getY() + random.nextFloat() * 0.8F,
+                            pos.getZ() + 0.1F + random.nextFloat() * 0.8F,
+                            0.0F,
+                            0.05F,
+                            0.0F
+                    );
+                }
+            }
         }
     }
 
