@@ -1,6 +1,8 @@
 package marpfr.shadowedradiance;
 
 import marpfr.shadowedradiance.common.block.SRBlocks;
+import marpfr.shadowedradiance.common.block.entity.SRBlockEntities;
+import marpfr.shadowedradiance.common.block.entity.renderer.LuxAccumulatorBlockEntityRenderer;
 import marpfr.shadowedradiance.datagen.SRModelProvider;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
@@ -11,6 +13,7 @@ import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
+import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.gui.ConfigurationScreen;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
@@ -34,5 +37,15 @@ public class ShadowedRadianceClient {
         ShadowedRadiance.LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
 
         ItemBlockRenderTypes.setRenderLayer(SRBlocks.LUX_CRYSTAL_CLUSTER.get(), ChunkSectionLayer.CUTOUT);
+    }
+
+    @SubscribeEvent // on the mod event bus only on the physical client
+    public static void registerEntityRenderers(EntityRenderersEvent.RegisterRenderers event) {
+        event.registerBlockEntityRenderer(
+                // The block entity type to register the renderer for.
+                SRBlockEntities.LUX_ACCUMULATOR_BLOCK_ENTITY.get(),
+                // A function of BlockEntityRendererProvider.Context to BlockEntityRenderer.
+                LuxAccumulatorBlockEntityRenderer::new
+        );
     }
 }

@@ -12,9 +12,14 @@ import net.minecraft.client.data.models.blockstates.MultiVariantGenerator;
 import net.minecraft.client.data.models.model.ModelTemplates;
 import net.minecraft.client.data.models.model.TextureMapping;
 import net.minecraft.client.renderer.block.model.Variant;
+import net.minecraft.core.Holder;
 import net.minecraft.data.PackOutput;
 import net.minecraft.util.random.WeightedList;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
 import org.jspecify.annotations.NonNull;
+
+import java.util.stream.Stream;
 
 public class SRModelProvider extends ModelProvider {
 
@@ -45,5 +50,21 @@ public class SRModelProvider extends ModelProvider {
         MultiVariant multivariant = new MultiVariant(WeightedList.of(new Variant(ModelTemplates.CROSS.create(luxCrystalClusterBlock, TextureMapping.cross(luxCrystalClusterBlock), blockModels.modelOutput))));
         blockModels.blockStateOutput.accept(MultiVariantGenerator.dispatch(luxCrystalClusterBlock, multivariant).with(BlockModelGenerators.ROTATIONS_COLUMN_WITH_FACING));
         blockModels.registerSimpleFlatItemModel(luxCrystalClusterBlock);
+    }
+
+    @Override
+    protected Stream<? extends Holder<Block>> getKnownBlocks() {
+        return SRBlocks.BLOCKS
+                .getEntries()
+                .stream()
+                .filter(x -> !x.is(SRBlocks.LUX_ACCUMULATOR.getId()));
+    }
+
+    @Override
+    protected Stream<? extends Holder<Item>> getKnownItems() {
+        return SRItems.ITEMS
+                .getEntries()
+                .stream()
+                .filter(x -> !x.is(SRBlocks.LUX_ACCUMULATOR.getId()));
     }
 }

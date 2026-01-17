@@ -25,6 +25,8 @@ public class SRItems {
 
     public static final DeferredItem<BlockItem> LUX_CRYSTAL_CLUSTER_ITEM = ITEMS.registerSimpleBlockItem("lux_crystal_cluster", SRBlocks.LUX_CRYSTAL_CLUSTER);
 
+    public static final DeferredItem<BlockItem> LUX_ACCUMULATOR_ITEM = ITEMS.registerSimpleBlockItem("lux_accumulator", SRBlocks.LUX_ACCUMULATOR);
+
     public static final DeferredItem<Item> LUX_CRYSTAL_FRAGMENT_ITEM = ITEMS.registerSimpleItem("lux_crystal_fragment");
 
     public static final DeferredItem<Item> LUX_CRYSTAL_SHARD_ITEM = ITEMS.registerSimpleItem("lux_crystal_shard");

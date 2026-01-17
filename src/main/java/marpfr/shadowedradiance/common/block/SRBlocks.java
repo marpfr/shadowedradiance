@@ -22,13 +22,14 @@ public class SRBlocks {
     public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(ShadowedRadiance.MODID);
     public static final DeferredRegister<MapCodec<? extends Block>> BLOCK_TYPES = DeferredRegister.create(BuiltInRegistries.BLOCK_TYPE, ShadowedRadiance.MODID);
 
-
-
     public static final DeferredBlock<LuxImbuedStoneBlock> LUX_IMBUED_STONE_BLOCK = BLOCKS.registerBlock("lux_imbued_stone", LuxImbuedStoneBlock::new);
     public static final Supplier<MapCodec<LuxImbuedStoneBlock>> LUX_IMBUED_STONE_BLOCK_TYPE = BLOCK_TYPES.register("lux_imbued_stone", () -> LuxImbuedStoneBlock.CODEC);
 
     public static final DeferredBlock<LuxCrystalClusterBlock> LUX_CRYSTAL_CLUSTER = BLOCKS.registerBlock("lux_crystal_cluster", LuxCrystalClusterBlock::new);
     public static final Supplier<MapCodec<LuxCrystalClusterBlock>> LUX_CRYSTAL_CLUSTER_TYPE = BLOCK_TYPES.register("lux_crystal_cluster", () -> LuxCrystalClusterBlock.CODEC);
+
+    public static final DeferredBlock<LuxAccumulatorBlock> LUX_ACCUMULATOR = BLOCKS.registerBlock("lux_accumulator", LuxAccumulatorBlock::new);
+    public static final Supplier<MapCodec<LuxAccumulatorBlock>> LUX_ACCUMULATOR_TYPE = BLOCK_TYPES.register("lux_accumulator", () -> LuxAccumulatorBlock.CODEC);
 
     public  static final DeferredBlock<Block> LUX_IMBUED_STONE_BRICK_BLOCK
             = BLOCKS.registerSimpleBlock(

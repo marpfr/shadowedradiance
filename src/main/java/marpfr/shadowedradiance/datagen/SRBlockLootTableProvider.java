@@ -82,6 +82,7 @@ public class SRBlockLootTableProvider extends BlockLootSubProvider {
         return SRBlocks.BLOCKS.getEntries()
                 .stream()
                 .map(e -> (Block) e.value())
+                .filter(b -> b != SRBlocks.LUX_ACCUMULATOR.get())
                 .toList();
     }
 }
