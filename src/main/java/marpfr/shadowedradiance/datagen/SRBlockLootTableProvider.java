@@ -75,6 +75,9 @@ public class SRBlockLootTableProvider extends BlockLootSubProvider {
         this.add(SRBlocks.LUX_IMBUED_STONE_BRICK_SLAB_BLOCK.get(),
                 block -> this.createSlabItemTable(SRBlocks.LUX_IMBUED_STONE_BRICK_SLAB_BLOCK.get()));
         this.dropSelf(SRBlocks.LUX_IMBUED_STONE_BRICK_WALL_BLOCK.get());
+
+        this.dropSelf(SRBlocks.LUX_ACCUMULATOR.get());
+        this.dropSelf(SRBlocks.LUX_RELAY.get());
     }
 
     @Override
@@ -82,7 +85,7 @@ public class SRBlockLootTableProvider extends BlockLootSubProvider {
         return SRBlocks.BLOCKS.getEntries()
                 .stream()
                 .map(e -> (Block) e.value())
-                .filter(b -> b != SRBlocks.LUX_ACCUMULATOR.get())
+                // .filter(b -> b != SRBlocks.LUX_ACCUMULATOR.get())
                 .toList();
     }
 }

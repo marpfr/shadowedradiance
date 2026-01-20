@@ -23,5 +23,14 @@ public class SRBlockEntities {
             )
     );
 
+    public static final Supplier<BlockEntityType<LuxRelayBlockEntity>> LUX_RELAY_BLOCK_ENTITY = BLOCK_ENTITY_TYPES.register(
+            "lux_relay_entity",
+            () -> new BlockEntityType<>(
+                    LuxRelayBlockEntity::new,
+                    false,
+                    SRBlocks.LUX_RELAY.get()
+            )
+    );
+
     public static void register(IEventBus modBus) { BLOCK_ENTITY_TYPES.register(modBus); }
 }

@@ -37,6 +37,7 @@ public class ShadowedRadianceClient {
         ShadowedRadiance.LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
 
         ItemBlockRenderTypes.setRenderLayer(SRBlocks.LUX_CRYSTAL_CLUSTER.get(), ChunkSectionLayer.CUTOUT);
+        ItemBlockRenderTypes.setRenderLayer(SRBlocks.LUX_RELAY.get(), ChunkSectionLayer.TRANSLUCENT);
     }
 
     @SubscribeEvent // on the mod event bus only on the physical client

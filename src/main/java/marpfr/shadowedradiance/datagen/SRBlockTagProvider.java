@@ -25,7 +25,11 @@ public class SRBlockTagProvider extends BlockTagsProvider {
                 .add(SRBlocks.LUX_IMBUED_STONE_BRICK_SLAB_BLOCK.get())
                 .add(SRBlocks.LUX_IMBUED_STONE_BRICK_WALL_BLOCK.get())
                 .add(SRBlocks.LUX_IMBUED_STONE_BLOCK.get())
-                .add(SRBlocks.LUX_CRYSTAL_CLUSTER.get());
+                .add(SRBlocks.LUX_CRYSTAL_CLUSTER.get())
+                .add(SRBlocks.LUX_ACCUMULATOR.get());
+
+        this.tag(BlockTags.NEEDS_IRON_TOOL)
+                .add(SRBlocks.LUX_ACCUMULATOR.get());
 
         this.tag(BlockTags.SNOW_LAYER_CANNOT_SURVIVE_ON)
                 .add(SRBlocks.LUX_CRYSTAL_CLUSTER.get());

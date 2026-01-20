@@ -31,6 +31,9 @@ public class SRBlocks {
     public static final DeferredBlock<LuxAccumulatorBlock> LUX_ACCUMULATOR = BLOCKS.registerBlock("lux_accumulator", LuxAccumulatorBlock::new);
     public static final Supplier<MapCodec<LuxAccumulatorBlock>> LUX_ACCUMULATOR_TYPE = BLOCK_TYPES.register("lux_accumulator", () -> LuxAccumulatorBlock.CODEC);
 
+    public static final DeferredBlock<LuxRelayBlock> LUX_RELAY = BLOCKS.registerBlock("lux_relay", LuxRelayBlock::new);
+    public static final Supplier<MapCodec<LuxRelayBlock>> LUX_RELAY_TYPE = BLOCK_TYPES.register("lux_relay", () -> LuxRelayBlock.CODEC);
+
     public  static final DeferredBlock<Block> LUX_IMBUED_STONE_BRICK_BLOCK
             = BLOCKS.registerSimpleBlock(
                     "lux_imbued_stone_brick",

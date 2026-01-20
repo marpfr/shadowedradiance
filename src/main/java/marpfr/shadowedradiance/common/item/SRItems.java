@@ -27,11 +27,15 @@ public class SRItems {
 
     public static final DeferredItem<BlockItem> LUX_ACCUMULATOR_ITEM = ITEMS.registerSimpleBlockItem("lux_accumulator", SRBlocks.LUX_ACCUMULATOR);
 
+    public static final DeferredItem<BlockItem> LUX_RELAY_ITEM = ITEMS.registerSimpleBlockItem("lux_relay", SRBlocks.LUX_RELAY);
+
     public static final DeferredItem<Item> LUX_CRYSTAL_FRAGMENT_ITEM = ITEMS.registerSimpleItem("lux_crystal_fragment");
 
     public static final DeferredItem<Item> LUX_CRYSTAL_SHARD_ITEM = ITEMS.registerSimpleItem("lux_crystal_shard");
 
     public static final DeferredItem<LuxCrystalLensItem> LUX_CRYSTAL_LENS_ITEM = ITEMS.registerItem("lux_crystal_lens", LuxCrystalLensItem::new);
+
+    public static final DeferredItem<LuxBatonItem> LUX_BATON_ITEM = ITEMS.registerItem("lux_baton", LuxBatonItem::new);
 
     public static void register(IEventBus modEventBus) {
 

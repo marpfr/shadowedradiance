@@ -49,6 +49,7 @@ public class LuxAccumulatorBlockEntityRenderer implements BlockEntityRenderer<Lu
         renderState.animationTime = blockEntity.getLevel() != null ? (float)Math.floorMod(blockEntity.getLevel().getGameTime(), 40) + partialTick : 0.0F;
 
         renderState.hasLens = blockEntity.getHasLens();
+        renderState.currentPotential = blockEntity.getCurrentPotential();
 
         itemModelResolver.updateForTopItem(
                 renderState.itemRenderState,
@@ -74,7 +75,7 @@ public class LuxAccumulatorBlockEntityRenderer implements BlockEntityRenderer<Lu
 
                 poseStack.pushPose();
 
-                poseStack.translate(0.5f, 0.9f, 0.5f);
+                poseStack.translate(0.5f, 0.9f + (0.2f * renderState.currentPotential), 0.5f);
                 poseStack.scale(0.75f, 0.75f, 0.75f);
                 poseStack.mulPose(Axis.XP.rotation(Mth.PI / 2f));
 

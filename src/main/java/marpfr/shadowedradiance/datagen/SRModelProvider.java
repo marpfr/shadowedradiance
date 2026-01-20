@@ -35,6 +35,8 @@ public class SRModelProvider extends ModelProvider {
 
         itemModels.generateFlatItem(SRItems.LUX_CRYSTAL_LENS_ITEM.get(), ModelTemplates.FLAT_ITEM);
 
+        itemModels.generateFlatItem(SRItems.LUX_BATON_ITEM.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+
         blockModels.createTrivialCube(SRBlocks.LUX_IMBUED_STONE_BLOCK.get());
 
         blockModels
@@ -57,7 +59,8 @@ public class SRModelProvider extends ModelProvider {
         return SRBlocks.BLOCKS
                 .getEntries()
                 .stream()
-                .filter(x -> !x.is(SRBlocks.LUX_ACCUMULATOR.getId()));
+                .filter(x -> !x.is(SRBlocks.LUX_ACCUMULATOR.getId()))
+                .filter(x -> !x.is(SRBlocks.LUX_RELAY.getId()));
     }
 
     @Override
@@ -65,6 +68,7 @@ public class SRModelProvider extends ModelProvider {
         return SRItems.ITEMS
                 .getEntries()
                 .stream()
-                .filter(x -> !x.is(SRBlocks.LUX_ACCUMULATOR.getId()));
+                .filter(x -> !x.is(SRBlocks.LUX_ACCUMULATOR.getId()))
+                .filter(x -> !x.is(SRBlocks.LUX_RELAY.getId()));
     }
 }

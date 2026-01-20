@@ -8,4 +8,5 @@ public class LuxAccumulatorBlockEntityRenderState extends BlockEntityRenderState
     public final ItemStackRenderState itemRenderState = new ItemStackRenderState();
 
     public boolean hasLens;
+    public float currentPotential;
 }
