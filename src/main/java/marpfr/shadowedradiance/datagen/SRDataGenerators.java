@@ -31,6 +31,8 @@ public class SRDataGenerators {
         generator.addProvider(true, new SRModelProvider(packOutput));
 
         generator.addProvider(true, new SRBlockTagProvider(packOutput, lookupProvider));
+
+        generator.addProvider(true, new SRParticleDescriptionProvider(packOutput));
     }
 
     @SubscribeEvent
@@ -47,6 +49,8 @@ public class SRDataGenerators {
         generator.addProvider(true, new SRModelProvider(packOutput));
 
         generator.addProvider(true, new SRBlockTagProvider(packOutput, lookupProvider));
+
+        generator.addProvider(true, new SRParticleDescriptionProvider(packOutput));
     }
 
 }

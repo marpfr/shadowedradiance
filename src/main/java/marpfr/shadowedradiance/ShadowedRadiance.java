@@ -3,7 +3,9 @@ package marpfr.shadowedradiance;
 import marpfr.shadowedradiance.common.SRCreativeTabs;
 import marpfr.shadowedradiance.common.block.SRBlocks;
 import marpfr.shadowedradiance.common.block.entity.SRBlockEntities;
+import marpfr.shadowedradiance.common.component.SRDataComponents;
 import marpfr.shadowedradiance.common.item.SRItems;
+import marpfr.shadowedradiance.common.particle.SRParticles;
 import marpfr.shadowedradiance.common.world.feature.SRFeatures;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -41,6 +43,8 @@ public class ShadowedRadiance {
         SRCreativeTabs.register(modEventBus);
         SRFeatures.register(modEventBus);
         SRBlockEntities.register(modEventBus);
+        SRDataComponents.register(modEventBus);
+        SRParticles.register(modEventBus);
 
         // Register ourselves for server and other game events we are interested in.
         // Note that this is necessary if and only if we want *this* class (ShadowedRadiance) to respond directly to events.

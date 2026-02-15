@@ -3,6 +3,8 @@ package marpfr.shadowedradiance;
 import marpfr.shadowedradiance.common.block.SRBlocks;
 import marpfr.shadowedradiance.common.block.entity.SRBlockEntities;
 import marpfr.shadowedradiance.common.block.entity.renderer.LuxAccumulatorBlockEntityRenderer;
+import marpfr.shadowedradiance.common.particle.LuxTransferParticle;
+import marpfr.shadowedradiance.common.particle.SRParticles;
 import marpfr.shadowedradiance.datagen.SRModelProvider;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
@@ -14,6 +16,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
+import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 import net.neoforged.neoforge.client.gui.ConfigurationScreen;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
@@ -38,6 +41,11 @@ public class ShadowedRadianceClient {
 
         ItemBlockRenderTypes.setRenderLayer(SRBlocks.LUX_CRYSTAL_CLUSTER.get(), ChunkSectionLayer.CUTOUT);
         ItemBlockRenderTypes.setRenderLayer(SRBlocks.LUX_RELAY.get(), ChunkSectionLayer.TRANSLUCENT);
+    }
+
+    @SubscribeEvent
+    public static void registerParticleFactories(RegisterParticleProvidersEvent event) {
+        event.registerSpriteSet(SRParticles.LUX_TRANSFER_PARTICLE.get(), LuxTransferParticle.Provider::new);
     }
 
     @SubscribeEvent // on the mod event bus only on the physical client
