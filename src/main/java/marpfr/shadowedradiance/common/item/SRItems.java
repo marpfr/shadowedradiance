@@ -37,6 +37,12 @@ public class SRItems {
 
     public static final DeferredItem<LuxBatonItem> LUX_BATON_ITEM = ITEMS.registerItem("lux_baton", LuxBatonItem::new);
 
+    public static final DeferredItem<BlockItem> LUXWOOD_LOG_ITEM = ITEMS.registerSimpleBlockItem("luxwood_log", SRBlocks.LUXWOOD_LOG);
+    public static final DeferredItem<BlockItem> LUXWOOD_WOOD_ITEM = ITEMS.registerSimpleBlockItem("luxwood_wood", SRBlocks.LUXWOOD_WOOD);
+    public static final DeferredItem<BlockItem> LUXWOOD_PLANKS_ITEM = ITEMS.registerSimpleBlockItem("luxwood_planks", SRBlocks.LUXWOOD_PLANKS);
+    public static final DeferredItem<BlockItem> STRIPPED_LUXWOOD_LOG_ITEM = ITEMS.registerSimpleBlockItem("stripped_luxwood_log", SRBlocks.STRIPPED_LUXWOOD_LOG);
+    public static final DeferredItem<BlockItem> STRIPPED_LUXWOOD_WOOD_ITEM = ITEMS.registerSimpleBlockItem("stripped_luxwood_wood", SRBlocks.STRIPPED_LUXWOOD_WOOD);
+
     public static void register(IEventBus modEventBus) {
 
         ITEMS.register(modEventBus);

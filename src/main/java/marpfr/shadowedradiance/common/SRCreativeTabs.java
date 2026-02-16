@@ -33,6 +33,9 @@ public class SRCreativeTabs {
                 output.accept(SRItems.LUX_CRYSTAL_LENS_ITEM.get());
                 output.accept(SRItems.LUX_ACCUMULATOR_ITEM.get());
                 output.accept(SRItems.LUX_RELAY_ITEM.get());
+                output.accept(SRItems.LUXWOOD_LOG_ITEM.get());
+                output.accept(SRItems.STRIPPED_LUXWOOD_LOG_ITEM.get());
+                output.accept(SRItems.LUXWOOD_PLANKS_ITEM.get());
 
 
             }).build());

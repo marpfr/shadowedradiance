@@ -78,6 +78,13 @@ public class SRBlockLootTableProvider extends BlockLootSubProvider {
 
         this.dropSelf(SRBlocks.LUX_ACCUMULATOR.get());
         this.dropSelf(SRBlocks.LUX_RELAY.get());
+
+        this.dropSelf(SRBlocks.LUXWOOD_LOG.get());
+        this.dropSelf(SRBlocks.STRIPPED_LUXWOOD_LOG.get());
+        this.dropSelf(SRBlocks.LUXWOOD_WOOD.get());
+        this.dropSelf(SRBlocks.STRIPPED_LUXWOOD_WOOD.get());
+
+        this.dropSelf(SRBlocks.LUXWOOD_PLANKS.get());
     }
 
     @Override

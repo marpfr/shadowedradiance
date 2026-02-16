@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "shadowedradiance:block/luxwood_log_top",
+    "side": "shadowedradiance:block/luxwood_log"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "values": {
+    "shadowedradiance:luxwood_log": {
+      "stripped_block": "shadowedradiance:stripped_luxwood_log"
+    },
+    "shadowedradiance:luxwood_wood": {
+      "stripped_block": "shadowedradiance:stripped_luxwood_wood"
+    }
+  }
+}

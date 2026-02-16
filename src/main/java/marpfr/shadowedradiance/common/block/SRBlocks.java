@@ -4,10 +4,7 @@ import com.mojang.serialization.MapCodec;
 import marpfr.shadowedradiance.ShadowedRadiance;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.SlabBlock;
-import net.minecraft.world.level.block.StairBlock;
-import net.minecraft.world.level.block.WallBlock;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
@@ -16,6 +13,7 @@ import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 import java.util.function.Supplier;
+import java.util.function.UnaryOperator;
 
 public class SRBlocks {
 
@@ -72,6 +70,29 @@ public class SRBlocks {
                             .requiresCorrectToolForDrops()
                             .strength(1.5F, 6.0F))
     );
+
+    public static final DeferredBlock<Block> LUXWOOD_LOG
+            = BLOCKS.registerBlock("luxwood_log", RotatedPillarBlock::new, woodProperties());
+
+    public static final DeferredBlock<Block> STRIPPED_LUXWOOD_LOG
+            = BLOCKS.registerBlock("stripped_luxwood_log", RotatedPillarBlock::new, woodProperties());
+
+    public static final DeferredBlock<Block> LUXWOOD_WOOD
+            = BLOCKS.registerBlock("luxwood_wood", RotatedPillarBlock::new, woodProperties());
+
+    public static final DeferredBlock<Block> STRIPPED_LUXWOOD_WOOD
+            = BLOCKS.registerBlock("stripped_luxwood_wood", RotatedPillarBlock::new, woodProperties());
+
+    public static final DeferredBlock<Block> LUXWOOD_PLANKS
+            = BLOCKS.registerBlock("luxwood_planks", Block::new, woodProperties());
+
+    private static UnaryOperator<BlockBehaviour.Properties> woodProperties() {
+        return p -> p.mapColor(MapColor.COLOR_BROWN)
+                .instrument(NoteBlockInstrument.BASS)
+                .strength(2.0F)
+                .sound(SoundType.WOOD)
+                .ignitedByLava();
+    }
 
     public static void register(IEventBus modEventBus) {
         BLOCKS.register(modEventBus);

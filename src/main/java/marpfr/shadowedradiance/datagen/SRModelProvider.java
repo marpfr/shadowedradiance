@@ -45,6 +45,16 @@ public class SRModelProvider extends ModelProvider {
                 .slab(SRBlocks.LUX_IMBUED_STONE_BRICK_SLAB_BLOCK.get())
                 .wall(SRBlocks.LUX_IMBUED_STONE_BRICK_WALL_BLOCK.get());
 
+        blockModels
+                .woodProvider(SRBlocks.LUXWOOD_LOG.get())
+                .wood(SRBlocks.LUXWOOD_WOOD.get())
+                .logWithHorizontal(SRBlocks.LUXWOOD_LOG.get());
+        blockModels
+                .woodProvider(SRBlocks.STRIPPED_LUXWOOD_LOG.get())
+                .wood(SRBlocks.STRIPPED_LUXWOOD_WOOD.get())
+                .logWithHorizontal(SRBlocks.STRIPPED_LUXWOOD_LOG.get());
+        blockModels.createTrivialCube(SRBlocks.LUXWOOD_PLANKS.get());
+
         registerLuxCrystalCluster(blockModels, SRBlocks.LUX_CRYSTAL_CLUSTER.get());
     }
 
