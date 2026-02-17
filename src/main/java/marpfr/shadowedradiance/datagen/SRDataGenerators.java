@@ -23,6 +23,8 @@ public class SRDataGenerators {
         PackOutput packOutput = generator.getPackOutput();
         CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
 
+        generator.addProvider(true, new SRDatapackProvider(packOutput, lookupProvider));
+
         generator.addProvider(true , new LootTableProvider(packOutput, Collections.emptySet(),
                 List.of(new LootTableProvider.SubProviderEntry(SRBlockLootTableProvider::new, LootContextParamSets.BLOCK)), lookupProvider));
 
@@ -42,6 +44,8 @@ public class SRDataGenerators {
         DataGenerator generator = event.getGenerator();
         PackOutput packOutput = generator.getPackOutput();
         CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
+
+        generator.addProvider(true, new SRDatapackProvider(packOutput, lookupProvider));
 
         generator.addProvider(true , new LootTableProvider(packOutput, Collections.emptySet(),
                 List.of(new LootTableProvider.SubProviderEntry(SRBlockLootTableProvider::new, LootContextParamSets.BLOCK)), lookupProvider));

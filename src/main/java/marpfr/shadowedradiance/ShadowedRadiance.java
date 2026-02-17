@@ -6,9 +6,14 @@ import marpfr.shadowedradiance.common.block.entity.SRBlockEntities;
 import marpfr.shadowedradiance.common.component.SRDataComponents;
 import marpfr.shadowedradiance.common.item.SRItems;
 import marpfr.shadowedradiance.common.particle.SRParticles;
+import marpfr.shadowedradiance.common.world.biome.LuminousGrovesRegion;
+import marpfr.shadowedradiance.common.world.biome.SRSurfaceRules;
 import marpfr.shadowedradiance.common.world.feature.SRFeatures;
+import net.minecraft.resources.Identifier;
+import net.neoforged.fml.ModList;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 import net.neoforged.neoforge.registries.DeferredRegister;
+import net.neoforged.neoforgespi.language.IModInfo;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -21,11 +26,11 @@ import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
+import terrablender.api.Regions;
+import terrablender.api.SurfaceRuleManager;
 
 @Mod(ShadowedRadiance.MODID)
 public class ShadowedRadiance {
-
-
 
     // Define mod id in a common place for everything to reference
     public static final String MODID = "shadowedradiance";
@@ -33,10 +38,20 @@ public class ShadowedRadiance {
     // Directly reference a slf4j logger
     public static final Logger LOGGER = LogUtils.getLogger();
 
+    // Dependencies
+    public static boolean terrablenderLoaded = false;
+    public static boolean lambdynlights_apiLoaded = false;
+
 
     public ShadowedRadiance(IEventBus modEventBus, ModContainer modContainer) {
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
+
+        terrablenderLoaded = ModList.get().isLoaded("terrablender");
+        lambdynlights_apiLoaded = ModList.get().isLoaded("lambdynlights_api");
+
+        LOGGER.debug("LOADED MODS");
+        ModList.get().getMods().stream().map(IModInfo::getNamespace).forEach(LOGGER::debug);
 
         SRBlocks.register(modEventBus);
         SRItems.register(modEventBus);
@@ -62,6 +77,13 @@ public class ShadowedRadiance {
         // Some common setup code
         LOGGER.info("HELLO FROM COMMON SETUP");
 
+        if (terrablenderLoaded) {
+            LOGGER.info("QUEUING TERRABLENDER TASKS");
+            event.enqueueWork(() -> {
+                Regions.register(new LuminousGrovesRegion(Identifier.fromNamespaceAndPath(MODID, "overworld"), 2));
+                SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, ShadowedRadiance.MODID, SRSurfaceRules.makeRules());
+            });
+        }
 
         LOGGER.info("{}{}", Config.MAGIC_NUMBER_INTRODUCTION.get(), Config.MAGIC_NUMBER.getAsInt());
 
