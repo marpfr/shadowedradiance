@@ -11,6 +11,7 @@ import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
@@ -83,6 +84,9 @@ public class SRBlockLootTableProvider extends BlockLootSubProvider {
         this.dropSelf(SRBlocks.STRIPPED_LUXWOOD_LOG.get());
         this.dropSelf(SRBlocks.LUXWOOD_WOOD.get());
         this.dropSelf(SRBlocks.STRIPPED_LUXWOOD_WOOD.get());
+        this.add(SRBlocks.LUXWOOD_LEAVES.get(),
+                block -> this.createLeavesDrops(block, Blocks.DARK_OAK_SAPLING, NORMAL_LEAVES_SAPLING_CHANCES));
+
 
         this.dropSelf(SRBlocks.LUXWOOD_PLANKS.get());
     }

@@ -11,6 +11,7 @@ import net.minecraft.client.data.models.MultiVariant;
 import net.minecraft.client.data.models.blockstates.MultiVariantGenerator;
 import net.minecraft.client.data.models.model.ModelTemplates;
 import net.minecraft.client.data.models.model.TextureMapping;
+import net.minecraft.client.data.models.model.TexturedModel;
 import net.minecraft.client.renderer.block.model.Variant;
 import net.minecraft.core.Holder;
 import net.minecraft.data.PackOutput;
@@ -53,6 +54,7 @@ public class SRModelProvider extends ModelProvider {
                 .woodProvider(SRBlocks.STRIPPED_LUXWOOD_LOG.get())
                 .wood(SRBlocks.STRIPPED_LUXWOOD_WOOD.get())
                 .logWithHorizontal(SRBlocks.STRIPPED_LUXWOOD_LOG.get());
+        blockModels.createTintedLeaves(SRBlocks.LUXWOOD_LEAVES.get(), TexturedModel.LEAVES, -11403438);
         blockModels.createTrivialCube(SRBlocks.LUXWOOD_PLANKS.get());
 
         registerLuxCrystalCluster(blockModels, SRBlocks.LUX_CRYSTAL_CLUSTER.get());

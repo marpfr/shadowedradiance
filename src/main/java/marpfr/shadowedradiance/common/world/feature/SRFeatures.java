@@ -12,7 +12,7 @@ public class SRFeatures {
 
     private static final DeferredRegister<Feature<?>> FEATURES = DeferredRegister.create(Registries.FEATURE, ShadowedRadiance.MODID);
 
-    public static DeferredHolder<Feature<?>, LuxCrystalClusterFeature> LUX_CRYSTAL_CLUSTER_FEATURE = FEATURES.register("lux_crystal_cluster", ()-> new LuxCrystalClusterFeature(BlockStateConfiguration.CODEC));
+    // public static DeferredHolder<Feature<?>, LuxCrystalClusterFeature> LUX_CRYSTAL_CLUSTER_FEATURE = FEATURES.register("lux_crystal_cluster", ()-> new LuxCrystalClusterFeature(BlockStateConfiguration.CODEC));
 
     public static void register(IEventBus modEventBus) {
 

@@ -2,12 +2,15 @@ package marpfr.shadowedradiance.common.block;
 
 import com.mojang.serialization.MapCodec;
 import marpfr.shadowedradiance.ShadowedRadiance;
-import net.minecraft.core.Registry;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.level.material.PushReaction;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -83,6 +86,23 @@ public class SRBlocks {
     public static final DeferredBlock<Block> STRIPPED_LUXWOOD_WOOD
             = BLOCKS.registerBlock("stripped_luxwood_wood", RotatedPillarBlock::new, woodProperties());
 
+    public static final DeferredBlock<Block> LUXWOOD_LEAVES
+            = BLOCKS.registerBlock(
+                    "luxwood_leaves",
+            p -> new TintedParticleLeavesBlock(
+                    0.1F,
+                    p.mapColor(MapColor.PLANT)
+                            .strength(0.2F)
+                            .randomTicks()
+                            .sound(SoundType.GRASS)
+                            .noOcclusion()
+                            .isValidSpawn(Blocks::ocelotOrParrot)
+                            .isSuffocating(SRBlocks::bockPredicateNever)
+                            .isViewBlocking(SRBlocks::bockPredicateNever)
+                            .ignitedByLava()
+                            .pushReaction(PushReaction.DESTROY)
+                            .isRedstoneConductor(SRBlocks::bockPredicateNever)));
+
     public static final DeferredBlock<Block> LUXWOOD_PLANKS
             = BLOCKS.registerBlock("luxwood_planks", Block::new, woodProperties());
 
@@ -96,5 +116,9 @@ public class SRBlocks {
 
     public static void register(IEventBus modEventBus) {
         BLOCKS.register(modEventBus);
+    }
+
+    private static boolean bockPredicateNever(BlockState state, BlockGetter blockGetter, BlockPos pos) {
+        return false;
     }
 }

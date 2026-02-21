@@ -1,0 +1,12 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "shadowedradiance:block/luxwood_leaves",
+    "tints": [
+      {
+        "type": "minecraft:constant",
+        "value": -11403438
+      }
+    ]
+  }
+}

@@ -7,8 +7,10 @@ import marpfr.shadowedradiance.common.particle.LuxTransferParticle;
 import marpfr.shadowedradiance.common.particle.SRParticles;
 import marpfr.shadowedradiance.datagen.SRModelProvider;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.chunk.ChunkSectionLayer;
+import net.minecraft.world.level.block.Blocks;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
@@ -16,6 +18,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
+import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 import net.neoforged.neoforge.client.gui.ConfigurationScreen;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
@@ -41,6 +44,7 @@ public class ShadowedRadianceClient {
 
         ItemBlockRenderTypes.setRenderLayer(SRBlocks.LUX_CRYSTAL_CLUSTER.get(), ChunkSectionLayer.CUTOUT);
         ItemBlockRenderTypes.setRenderLayer(SRBlocks.LUX_RELAY.get(), ChunkSectionLayer.TRANSLUCENT);
+        ItemBlockRenderTypes.setRenderLayer(SRBlocks.LUXWOOD_LEAVES.get(), ChunkSectionLayer.CUTOUT);
     }
 
     @SubscribeEvent
@@ -55,6 +59,18 @@ public class ShadowedRadianceClient {
                 SRBlockEntities.LUX_ACCUMULATOR_BLOCK_ENTITY.get(),
                 // A function of BlockEntityRendererProvider.Context to BlockEntityRenderer.
                 LuxAccumulatorBlockEntityRenderer::new
+        );
+    }
+
+    @SubscribeEvent // on the mod event bus only on the physical client
+    public static void registerBlockColorHandlers(RegisterColorHandlersEvent.Block event) {
+        // Parameters are the block's state, the level the block is in, the block's position, and the tint index.
+        // The level and position may be null.
+        event.register(
+                (p_386202_, p_386203_, p_386204_, p_386205_) -> p_386203_ != null && p_386204_ != null
+                        ? BiomeColors.getAverageFoliageColor(p_386203_, p_386204_)
+                        : -12012264,
+                SRBlocks.LUXWOOD_LEAVES.get()
         );
     }
 }
