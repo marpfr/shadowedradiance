@@ -90,18 +90,15 @@ public class SRBlocks {
             = BLOCKS.registerBlock(
                     "luxwood_leaves",
             p -> new TintedParticleLeavesBlock(
-                    0.1F,
-                    p.mapColor(MapColor.PLANT)
-                            .strength(0.2F)
-                            .randomTicks()
-                            .sound(SoundType.GRASS)
-                            .noOcclusion()
-                            .isValidSpawn(Blocks::ocelotOrParrot)
-                            .isSuffocating(SRBlocks::bockPredicateNever)
-                            .isViewBlocking(SRBlocks::bockPredicateNever)
-                            .ignitedByLava()
-                            .pushReaction(PushReaction.DESTROY)
-                            .isRedstoneConductor(SRBlocks::bockPredicateNever)));
+                    0.01F,
+                    defaultLeavesProperties(p)));
+
+    public static final DeferredBlock<Block> GLOWING_LUXWOOD_LEAVES
+            = BLOCKS.registerBlock(
+            "glowing_luxwood_leaves",
+            p -> new TintedParticleLeavesBlock(
+                    0.01F,
+                    defaultLeavesProperties(p).lightLevel(state -> 7)));
 
     public static final DeferredBlock<Block> LUXWOOD_PLANKS
             = BLOCKS.registerBlock("luxwood_planks", Block::new, woodProperties());
@@ -120,5 +117,19 @@ public class SRBlocks {
 
     private static boolean bockPredicateNever(BlockState state, BlockGetter blockGetter, BlockPos pos) {
         return false;
+    }
+
+    private static BlockBehaviour.Properties defaultLeavesProperties(BlockBehaviour.Properties properties) {
+        return properties.mapColor(MapColor.PLANT)
+                .strength(0.2F)
+                .randomTicks()
+                .sound(SoundType.GRASS)
+                .noOcclusion()
+                .isValidSpawn(Blocks::ocelotOrParrot)
+                .isSuffocating(SRBlocks::bockPredicateNever)
+                .isViewBlocking(SRBlocks::bockPredicateNever)
+                .ignitedByLava()
+                .pushReaction(PushReaction.DESTROY)
+                .isRedstoneConductor(SRBlocks::bockPredicateNever);
     }
 }

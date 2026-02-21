@@ -34,5 +34,11 @@ public class SRBlockTagProvider extends BlockTagsProvider {
         this.tag(BlockTags.SNOW_LAYER_CANNOT_SURVIVE_ON)
                 .add(SRBlocks.LUX_CRYSTAL_CLUSTER.get());
 
+        this.tag(BlockTags.LOGS_THAT_BURN)
+                .add(SRBlocks.LUXWOOD_LOG.get())
+                .add(SRBlocks.STRIPPED_LUXWOOD_LOG.get())
+                .add(SRBlocks.LUXWOOD_WOOD.get())
+                .add(SRBlocks.STRIPPED_LUXWOOD_WOOD.get());
+
     }
 }

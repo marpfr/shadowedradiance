@@ -86,6 +86,8 @@ public class SRBlockLootTableProvider extends BlockLootSubProvider {
         this.dropSelf(SRBlocks.STRIPPED_LUXWOOD_WOOD.get());
         this.add(SRBlocks.LUXWOOD_LEAVES.get(),
                 block -> this.createLeavesDrops(block, Blocks.DARK_OAK_SAPLING, NORMAL_LEAVES_SAPLING_CHANCES));
+        this.add(SRBlocks.GLOWING_LUXWOOD_LEAVES.get(),
+                block -> this.createLeavesDrops(block, Blocks.DARK_OAK_SAPLING, NORMAL_LEAVES_SAPLING_CHANCES));
 
 
         this.dropSelf(SRBlocks.LUXWOOD_PLANKS.get());

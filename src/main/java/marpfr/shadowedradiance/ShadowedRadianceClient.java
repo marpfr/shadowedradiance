@@ -69,8 +69,9 @@ public class ShadowedRadianceClient {
         event.register(
                 (p_386202_, p_386203_, p_386204_, p_386205_) -> p_386203_ != null && p_386204_ != null
                         ? BiomeColors.getAverageFoliageColor(p_386203_, p_386204_)
-                        : -12012264,
-                SRBlocks.LUXWOOD_LEAVES.get()
+                        : -11403438,
+                SRBlocks.LUXWOOD_LEAVES.get(),
+                SRBlocks.GLOWING_LUXWOOD_LEAVES.get()
         );
     }
 }

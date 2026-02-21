@@ -43,6 +43,7 @@ public class SRItems {
     public static final DeferredItem<BlockItem> STRIPPED_LUXWOOD_LOG_ITEM = ITEMS.registerSimpleBlockItem("stripped_luxwood_log", SRBlocks.STRIPPED_LUXWOOD_LOG);
     public static final DeferredItem<BlockItem> STRIPPED_LUXWOOD_WOOD_ITEM = ITEMS.registerSimpleBlockItem("stripped_luxwood_wood", SRBlocks.STRIPPED_LUXWOOD_WOOD);
     public static final DeferredItem<BlockItem> LUXWOOD_LEAVES_ITEM = ITEMS.registerSimpleBlockItem("luxwood_leaves", SRBlocks.LUXWOOD_LEAVES);
+    public static final DeferredItem<BlockItem> GLOWING_LUXWOOD_LEAVES_ITEM = ITEMS.registerSimpleBlockItem("glowing_luxwood_leaves", SRBlocks.GLOWING_LUXWOOD_LEAVES);
 
     public static void register(IEventBus modEventBus) {
 

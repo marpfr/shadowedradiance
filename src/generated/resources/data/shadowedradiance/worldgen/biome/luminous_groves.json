@@ -2,6 +2,14 @@
   "attributes": {
     "minecraft:audio/background_music": {},
     "minecraft:audio/music_volume": 0.0,
+    "minecraft:visual/ambient_particles": [
+      {
+        "particle": {
+          "type": "minecraft:firefly"
+        },
+        "probability": 1.0E-4
+      }
+    ],
     "minecraft:visual/fog_color": "#817770",
     "minecraft:visual/sky_color": "#79a6ff",
     "minecraft:visual/water_fog_color": "#556980"

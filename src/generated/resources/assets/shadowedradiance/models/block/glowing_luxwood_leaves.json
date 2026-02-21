@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "shadowedradiance:block/luxwood_leaves"
+    "all": "shadowedradiance:block/glowing_luxwood_leaves"
   }
 }

@@ -18,6 +18,7 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.util.random.WeightedList;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import org.jspecify.annotations.NonNull;
 
 import java.util.stream.Stream;
@@ -54,9 +55,9 @@ public class SRModelProvider extends ModelProvider {
                 .woodProvider(SRBlocks.STRIPPED_LUXWOOD_LOG.get())
                 .wood(SRBlocks.STRIPPED_LUXWOOD_WOOD.get())
                 .logWithHorizontal(SRBlocks.STRIPPED_LUXWOOD_LOG.get());
-        blockModels.createTintedLeaves(SRBlocks.LUXWOOD_LEAVES.get(), TexturedModel.LEAVES, -11403438);
+        blockModels.createTrivialCube(SRBlocks.LUXWOOD_LEAVES.get());
+        blockModels.createTrivialCube(SRBlocks.GLOWING_LUXWOOD_LEAVES.get());
         blockModels.createTrivialCube(SRBlocks.LUXWOOD_PLANKS.get());
-
         registerLuxCrystalCluster(blockModels, SRBlocks.LUX_CRYSTAL_CLUSTER.get());
     }
 

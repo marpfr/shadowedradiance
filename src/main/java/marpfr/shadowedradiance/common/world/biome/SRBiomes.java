@@ -3,6 +3,7 @@ package marpfr.shadowedradiance.common.world.biome;
 import marpfr.shadowedradiance.ShadowedRadiance;
 import marpfr.shadowedradiance.common.world.feature.SRPlacedFeatures;
 import net.minecraft.core.HolderGetter;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BiomeDefaultFeatures;
 import net.minecraft.data.worldgen.BootstrapContext;
@@ -11,6 +12,7 @@ import net.minecraft.data.worldgen.placement.AquaticPlacements;
 import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.attribute.AmbientParticle;
 import net.minecraft.world.attribute.BackgroundMusic;
 import net.minecraft.world.attribute.EnvironmentAttributeMap;
 import net.minecraft.world.attribute.EnvironmentAttributes;
@@ -68,6 +70,7 @@ public class SRBiomes {
                 .set(EnvironmentAttributes.WATER_FOG_COLOR, -11179648)
                 .set(EnvironmentAttributes.BACKGROUND_MUSIC, BackgroundMusic.EMPTY)
                 .set(EnvironmentAttributes.MUSIC_VOLUME, 0.0F)
+                .set(EnvironmentAttributes.AMBIENT_PARTICLES, AmbientParticle.of(ParticleTypes.FIREFLY, 0.0001F))
                 .build();
 
         return new Biome.BiomeBuilder()
